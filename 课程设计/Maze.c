@@ -1,10 +1,10 @@
-//Í·ÎÄ¼ş
+//å¤´æ–‡ä»¶
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
 
-//È«¾Ö±äÁ¿¶¨Òå
+//å…¨å±€å˜é‡å®šä¹‰
 #define Road 0
 #define Wall 1
 #define Start 2
@@ -18,24 +18,24 @@
 #define Len 25
 int List_x[] = {-1,1,0,0},List_y[] = {0,0,-1,1},map[Len + 2][Len + 2],v[Len + 2][Len + 2],Use = 1;
 
-//»¶Ó­½çÃæ£¬Í¬Ê±³õÊ¼»¯´°¿Ú
+//æ¬¢è¿ç•Œé¢ï¼ŒåŒæ—¶åˆå§‹åŒ–çª—å£
 void Welcome()
 {
-	system("mode con:cols=50 lines=27&&title Maze Design:Ñî½¨ÎÄ");
-	//SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &(CONSOLE_CURSOR_INFO) {25, 0});//Òş²Ø¹â±êº¯Êı£¬Í¨¹ıµ÷ÓÃWindows API¶Ô´°¿Ú½øĞĞ¶¨Òå
+	system("mode con:cols=50 lines=27&&title Maze Design:æ¨å»ºæ–‡");
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &(CONSOLE_CURSOR_INFO) {25, 0});//éšè—å…‰æ ‡å‡½æ•°ï¼Œé€šè¿‡è°ƒç”¨Windows APIå¯¹çª—å£è¿›è¡Œå®šä¹‰
 	printf("\
                      	|\n\
                  __\\--__|_\n\
-  II=======OOOOO[/ ¡ï02 ___|\n\
+  II=======OOOOO[/ â˜…02 ___|\n\
            _____\\______|/-----.\n\
          /____________________|\n\
-          \\¡ò¡ò¡ò¡ò¡ò¡ò¡ò¡ò¡Ñ/\n\
+          \\â—â—â—â—â—â—â—â—âŠ™/\n\
             ~~~~~~~~~~~~~~~~\n");
 	Sleep(3000);
 	system("cls");
 }
 
-//Í¨¹ıµ÷ÓÃWindoesAPI£¬ÊµÏÖ¹â±êÌø×ªµ½¶ÔÓ¦µÄÇøÓò
+//é€šè¿‡è°ƒç”¨WindoesAPIï¼Œå®ç°å…‰æ ‡è·³è½¬åˆ°å¯¹åº”çš„åŒºåŸŸ
 void Goto(int x, int y)
 {
 	COORD coord;
@@ -44,7 +44,7 @@ void Goto(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-//Ëæ»úÉú³ÉµØÍ¼º¯Êı
+//éšæœºç”Ÿæˆåœ°å›¾å‡½æ•°
 void Create(int x, int y)
 {
 	int c[4][2] = {0, 1, 1, 0, 0, -1, -1, 0};
@@ -94,19 +94,19 @@ void Print(int x, int y)
 	switch (map[x][y])
 		{
 			case Start:
-				printf("Èë");
+				printf("å…¥");
 				break;
 			case End:
-				printf("³ö");
+				printf("å‡º");
 				break;
 			case Wall:
-				printf("¨~");
+				printf("â–‡");
 				break;
 			case Road:
 				printf(" ");
 				break;
 			case Search:
-				printf("¡ï");
+				printf("â˜…");
 				break;
 		}
 }
@@ -117,10 +117,10 @@ void Game()
 	while (1)
 		{
 			Goto(2 * y - 2, x - 1);
-			printf("¡ñ\b\b");
+			printf("â—\b\b");
 			if (map[x][y] == End)
 				{
-					printf("\n\nµ½´ïÖÕµã£¬°´ÈÎÒâ¼ü½áÊø");
+					printf("\n\nåˆ°è¾¾ç»ˆç‚¹ï¼ŒæŒ‰ä»»æ„é”®ç»“æŸ");
 					getch();
 					break;
 				}
@@ -140,7 +140,7 @@ void Edit()
 	int x,y;
 	system("cls");
 	Use = 2;
-	printf("ÇëÊäÈëÒª¸ü¸ÄµÄ×ø±ê£º");
+	printf("è¯·è¾“å…¥è¦æ›´æ”¹çš„åæ ‡ï¼š");
 	scanf("%d %d",&x,&y);
 	map[x][y] = map[x][y]?0:1;
 }
@@ -166,7 +166,7 @@ void Url_Change(char Local[100])
 	int temp,next;
 	for ( temp = 0; temp < strlen(Local); temp++)
 		{
-			if (Local[temp] == '\\')/*ÎÒÈ¥Ì«¿ÓÁË£¬ÕâÀïÒ²ÒªÓÃ×ªÒå×Ö·û*/
+			if (Local[temp] == '\\')/*æˆ‘å»å¤ªå‘äº†ï¼Œè¿™é‡Œä¹Ÿè¦ç”¨è½¬ä¹‰å­—ç¬¦*/
 				{
 					for (next = strlen(Local) + 1; next > (temp + 1); next--)
 						Local[next] = Local[next - 1];
@@ -182,7 +182,7 @@ void Map_Out()
 	system("cls");
 	if(!Use)
 		{
-			printf("\tÇëÊäÈëµ¼³öµÄµØÖ·: ___\b\b\b");
+			printf("\tè¯·è¾“å…¥å¯¼å‡ºçš„åœ°å€: ___\b\b\b");
 			scanf("%s",Local);
 			Url_Change(Local);
 			strcat(Local,Work_name);
@@ -196,10 +196,10 @@ void Map_Out()
 				}
 
 			fclose(Data);
-			printf("\t³É¹¦½«Êı¾İµ¼³öµ½%s\n\tÎÄ¼şÃû½ĞMap.txt\n",Local);
+			printf("\tæˆåŠŸå°†æ•°æ®å¯¼å‡ºåˆ°%s\n\tæ–‡ä»¶åå«Map.txt\n",Local);
 		}
-	else printf("\tÎŞµØÍ¼Êı¾İ£¡\n");
-	printf("\t½«ÔÚ1.5Ãëºó»Øµ½²Ëµ¥£¡");
+	else printf("\tæ— åœ°å›¾æ•°æ®ï¼\n");
+	printf("\tå°†åœ¨1.5ç§’åå›åˆ°èœå•ï¼");
 	Sleep(1500);
 }
 
@@ -209,11 +209,11 @@ int Map_In()
 	int tem_Len;
 	char Local[100],Work_name[13] = {"\\\\Map.txt"};
 	system("cls");
-	printf("\tÇëÊäÈëµ¼ÈëµÄµØÖ·: ___\b\b\b");
+	printf("\tè¯·è¾“å…¥å¯¼å…¥çš„åœ°å€: ___\b\b\b");
 	scanf("%s",Local);
 	Url_Change(Local);
 	strcat(Local,Work_name);
-	Data = fopen(Local,"r");/*´ò¿ªÖ¸¶¨ÎÄ¼ş*/
+	Data = fopen(Local,"r");/*æ‰“å¼€æŒ‡å®šæ–‡ä»¶*/
 	fscanf(Data,"%d\n",&tem_Len);
 	if(tem_Len == Len)
 		{
@@ -223,16 +223,16 @@ int Map_In()
 						fscanf(Data,"%d ",&map[x][y]);
 					fscanf(Data,"\n");
 				}
-			printf("\t³É¹¦½«Êı¾İ´Ó%sµ¼³öµ½³ÌĞò£¡\n",Local);
+			printf("\tæˆåŠŸå°†æ•°æ®ä»%så¯¼å‡ºåˆ°ç¨‹åºï¼\n",Local);
 			Use = 0;
 		}
-	else printf("\tµØÍ¼¸ñÊ½´íÎó£¡ÇëÖØĞÂÊäÈë£¡\n");
+	else printf("\tåœ°å›¾æ ¼å¼é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼\n");
 	fclose(Data);
-	printf("\t½«ÔÚ1.5Ãëºó»Øµ½²Ëµ¥£¡");
+	printf("\tå°†åœ¨1.5ç§’åå›åˆ°èœå•ï¼");
 	Sleep(1500);
 	return 0;
 }
-void Mode(int flag) //flag = 1 Ê±
+void Mode(int flag) //flag = 1 æ—¶
 {
 	system("cls");
 	srand((unsigned)time(NULL));
@@ -254,25 +254,25 @@ int Direction()
 	system("cls");
 	printf("\n\n\n\n\n");
 	printf("\t|---------------MENU------------|\n");
-	printf("\t|\t 0. ÍË³öÏµÍ³\t\t|\n");
-	printf("\t|\t 1. Ê¹ÓÃ×Ô¶¨ÒåµØÍ¼\t|\n");
-	printf("\t|\t 2. Ê¹ÓÃËæ»úµØÍ¼\t|\n");
-	printf("\t|\t 3. ±à¼­µØÍ¼\t\t|\n");
+	printf("\t|\t 0. é€€å‡ºç³»ç»Ÿ\t\t|\n");
+	printf("\t|\t 1. ä½¿ç”¨è‡ªå®šä¹‰åœ°å›¾\t|\n");
+	printf("\t|\t 2. ä½¿ç”¨éšæœºåœ°å›¾\t|\n");
+	printf("\t|\t 3. ç¼–è¾‘åœ°å›¾\t\t|\n");
 	printf("\t|\t 4. DFS\t\t\t|\n");
-	printf("\t|\t 5. µØÍ¼´æÅÌ\t\t|\n");
-	printf("\t|\t 6. µØÍ¼¶ÁÅÌ\t\t|\n");
-	printf("\t|\t 7. ³ÌĞòÉè¼ÆÈËÔ±Ãûµ¥\t|\n");
+	printf("\t|\t 5. åœ°å›¾å­˜ç›˜\t\t|\n");
+	printf("\t|\t 6. åœ°å›¾è¯»ç›˜\t\t|\n");
+	printf("\t|\t 7. ç¨‹åºè®¾è®¡äººå‘˜åå•\t|\n");
 	printf("\t|-------------------------------|\n\n");
-	printf("\tÇëÊäÈëÄúÏë½øÈëµÄ¹¦ÄÜµÄĞòºÅ(0-7): ___\b\b\b");
+	printf("\tè¯·è¾“å…¥æ‚¨æƒ³è¿›å…¥çš„åŠŸèƒ½çš„åºå·(0-7): ___\b\b\b");
 	switch (getch())
 		{
 			case '0':
 				system("cls");
-				printf("\t\tÈ·ÈÏÍË³öÏµÍ³£¿(y/n) ___\b\b\b");
+				printf("\t\tç¡®è®¤é€€å‡ºç³»ç»Ÿï¼Ÿ(y/n) ___\b\b\b");
 				if(_getch() == 121)
 					{
 						system("cls");
-						printf("\t¸ĞĞ»ÄúµÄÊ¹ÓÃ£¡³ÌĞò½«ÔÚ1.5ÃëºóÍË³ö£¡");
+						printf("\tæ„Ÿè°¢æ‚¨çš„ä½¿ç”¨ï¼ç¨‹åºå°†åœ¨1.5ç§’åé€€å‡ºï¼");
 						Sleep(1500);
 						exit(0);
 					}
@@ -281,7 +281,7 @@ int Direction()
 			case '1':
 				if(Use)
 					{
-						printf("\n\tµØÍ¼Îª¿Õ£¡Çë±à¼­µØÍ¼»òÕßËæ»úÉú³ÉµØÍ¼£¡");
+						printf("\n\tåœ°å›¾ä¸ºç©ºï¼è¯·ç¼–è¾‘åœ°å›¾æˆ–è€…éšæœºç”Ÿæˆåœ°å›¾ï¼");
 						Sleep(1500);
 					}
 				else
@@ -298,7 +298,7 @@ int Direction()
 				if(Use)
 					{
 						system("cls");
-						printf("\tÎ´´æ´¢µØÍ¼£¬ÊÇ·ñÉú³ÉµØÍ¼£¿(y/n) ___\b\b\b");
+						printf("\tæœªå­˜å‚¨åœ°å›¾ï¼Œæ˜¯å¦ç”Ÿæˆåœ°å›¾ï¼Ÿ(y/n) ___\b\b\b");
 						if(getch() == 'y')
 							{
 								system("cls");
@@ -326,10 +326,10 @@ int Direction()
 				break;
 			case '7':
 				system("cls && start https://github.com/yang1955316899");
-				printf("\t¼ÆËã»ú¿ÆÑ§Óë¼¼Êõ1904°à\n\tÑî½¨ÎÄ Ñ§ºÅ£º2019013528\n\t°´ÈÎÒâ¼ü·µ»Ø£¡\n");
+				printf("\tè®¡ç®—æœºç§‘å­¦ä¸æŠ€æœ¯1904ç­\n\tæ¨å»ºæ–‡ å­¦å·ï¼š2019013528\n\tæŒ‰ä»»æ„é”®è¿”å›ï¼\n");
 				if(getch()) break;
 			default:
-				printf("\n\tÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë£¡");
+				printf("\n\tè¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼");
 				Sleep(1000);
 				break;
 		}
