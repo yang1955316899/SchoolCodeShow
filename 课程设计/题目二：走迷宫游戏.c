@@ -15,13 +15,13 @@
 #define Left 2
 #define Right 3
 #define Search 5
-#define Len 25
+#define Len 27
 int List_x[] = {-1,1,0,0},List_y[] = {0,0,-1,1},map[Len + 2][Len + 2],v[Len + 2][Len + 2],Use = 1;
 
 //欢迎界面，同时初始化窗口
 void Welcome()
 {
-	system("mode con:cols=50 lines=27&&title Maze Design:杨建文");
+	system("mode con:cols=54 lines=27&&title Maze Design:杨建文");
 	//SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &(CONSOLE_CURSOR_INFO) {25, 0});//隐藏光标函数，通过调用Windows API对窗口进行定义
 	printf("\
                      	|\n\
@@ -31,7 +31,7 @@ void Welcome()
          /____________________|\n\
           \\◎◎◎◎◎◎◎◎⊙/\n\
             ~~~~~~~~~~~~~~~~\n");
-	Sleep(3000);
+	//Sleep(3000);
 	system("cls");
 }
 

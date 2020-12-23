@@ -1,7 +1,7 @@
-//Г╗▀Е╨▐Е░█Г╖╟О╪ И≤÷Е┬≈Г └И⌠╬Е╪▐Е╜≤Е┌╗Е▐┼Е╝·Г▌╟
-//Г╪√Х╞▒Г▌╞Е╒┐О╪ Dev-c++ 5.11
-//Д╫°	Х─┘:Ф²╗Е╩╨Ф√┤
-//Ф°─Е░▌Д©╝Ф■╧О╪ 2020-11-22
+//ЁлпРцШЁфё╨╤сап╣да╢й╫╢Ф╢╒╪╟й╣ож
+//╠ЮрК╩╥╬Ёё╨Dev-c++ 5.11
+//вВ	уъ:яН╫╗нд
+//вН╨Спч╦дё╨2020-11-22
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +13,7 @@ typedef int ElementType;
 typedef int bool;
 typedef struct Node *PtrToNode;
 struct Node
-{ /*И≤÷Е┬≈Д╦╜Г └Г╩⌠Г┌╧*/
+{ /*╤сапжп╣д╫А╣Ц*/
 	ElementType Data;
 	PtrToNode Next;
 };
@@ -21,7 +21,7 @@ typedef PtrToNode Position;
 
 struct QNode
 {
-	Position Front, Rear; /*И≤÷Е┬≈Г └Е╓╢Ц─│Е╟╬Ф▄┤И▓┬*/
+	Position Front, Rear; /*╤сап╣дм╥║╒н╡ж╦уК*/
 };
 typedef struct QNode *Queue;
 
@@ -59,13 +59,13 @@ ElementType DeleteQ(Queue Q)
 
 	if (IsEmpty(Q))
 	{
-		printf("И≤÷Е┬≈Г╘╨");
+		printf("╤сап©у");
 		return ERROR;
 	}
 	else
 	{
 		FrontCell = Q->Front;
-		if (Q->Front == Q->Rear) /*Х▀╔И≤÷Е┬≈Е▐╙Ф°┴Д╦─Д╦╙Е┘┐Г╢═*/
+		if (Q->Front == Q->Rear) /*хТ╤сапж╩спр╩╦Жт╙кь*/
 			Q->Front = Q->Rear = NULL;
 		else
 			Q->Front = Q->Front->Next;
@@ -105,11 +105,11 @@ int main()
 	Queue Q;
 	Q = CreatQueue();
 	for (int temp = 1; temp < 4; temp++)AddQ(Q,temp);
-	printf("И≤÷Е┬≈Е╓╢Г╩⌠Г┌╧Д╦╨О╪ %d",GetHead(Q));
-	printf("И≤÷Е┬≈Г └И∙©Е╨╕Д╦╨О╪ %d\n", QueueLength(Q));
+	printf("╤сапм╥╫А╣Цн╙ё╨%d",GetHead(Q));
+	printf("╤сап╣дЁ╓╤хн╙ё╨%d\n", QueueLength(Q));
 	while (!IsEmpty(Q))
 		printf("%d\n", DeleteQ(Q));
 	for (int temp = 1; temp < 4; temp++)AddQ(Q,temp);
-	if(ClearQueue(Q))printf("Ф╦┘И≥╓И≤÷Е┬≈Ф┬░Е┼÷");	
+	if(ClearQueue(Q))printf("гЕЁЩ╤сапЁи╧╕");	
 	return 0;
 }

@@ -1,7 +1,7 @@
-//ç¨‹åºåç§°:çº¿æ€§è¡¨çš„é¡ºåºå­˜å‚¨åŠå®ç°
-//ç¼–è¯‘ç¯å¢ƒ:Dev-C++ 5.5.3
-//ä½œè€…:æ¨å»ºæ–‡
-//æœ€åä¿®æ”¹:2020-9-26
+//³ÌĞòÃû³Æ:ÏßĞÔ±íµÄË³Ğò´æ´¢¼°ÊµÏÖ
+//±àÒë»·¾³:Dev-C++ 5.5.3
+//×÷Õß:Ñî½¨ÎÄ
+//×îºóĞŞ¸Ä:2020-9-26
 #include <stdio.h>
 #include <stdlib.h>
 #define ERROR -1
@@ -32,22 +32,22 @@ Position Find(List L, ElementType x)
 	while (i <= L->Last && L->Data[i] != x)
 		i++;
 	if (i > L->Last)
-		return ERROR; /*å¦‚æœæ²¡æ‰¾åˆ°,è¿”å›é”™è¯¯ä¿¡æ¯ã€*/
+		return ERROR; /*Èç¹ûÃ»ÕÒµ½,·µ»Ø´íÎóĞÅÏ¢¡¢*/
 	else
-		return i; /*æ‰¾åˆ°åè¿”å›çš„æ˜¯å­˜å‚¨ä½ç½®*/
+		return i; /*ÕÒµ½ºó·µ»ØµÄÊÇ´æ´¢Î»ÖÃ*/
 }
 bool Insert(List L, ElementType x, int i)
 {
 	Position j;
 	if (L->Last == MAXSIZE - 1)
 	{
-		/*è¡¨ç©ºé—´å·²æ»¡,ä¸èƒ½æ’å…¥*/
-		printf("è¡¨æ»¡");
+		/*±í¿Õ¼äÒÑÂú,²»ÄÜ²åÈë*/
+		printf("±íÂú");
 		return false;
 	}
 	if (i < 1 || i > L->Last + 2)
 	{
-		printf("ä½åºä¸åˆæ³•");
+		printf("Î»Ğò²»ºÏ·¨");
 		return false;
 	}
 	for (j = L->Last; j >= i - 1; j--)
@@ -58,10 +58,10 @@ bool Insert(List L, ElementType x, int i)
 }
 bool Delete(List L, int i)
 {
-	/*ä»Lä¸­åˆ é™¤æŒ‡å®šä½åºiçš„å…ƒç´ ,è¯¥å…ƒç´ æ•°ç»„ä¸‹æ ‡ä¸ºi-1 */
+	/*´ÓLÖĞÉ¾³ıÖ¸¶¨Î»ĞòiµÄÔªËØ,¸ÃÔªËØÊı×éÏÂ±êÎªi-1 */
 	Position j;
 	if (i < 1 || i > L->Last + 1)
-		printf("ä½åº%dä¸å­˜åœ¨å…ƒç´ ", i);
+		printf("Î»Ğò%d²»´æÔÚÔªËØ", i);
 	return false;
 	for (j = i; j <= L->Last; j++)
 		L->Data[j - 1] = L->Data[j];
@@ -94,7 +94,7 @@ int main()
 	Delete(L, 3);
 	Insert(L, 100, 10);
 	Print(L);
-	printf("\nçº¿æ€§è¡¨é•¿åº¦ä¸ºï¼š%d\t", Length(L));
-	printf("ä½ç½®ä¸º3çš„å€¼ä¸ºï¼š%d", FindKth(L, 3));
+	printf("\nÏßĞÔ±í³¤¶ÈÎª£º%d\t", Length(L));
+	printf("Î»ÖÃÎª3µÄÖµÎª£º%d", FindKth(L, 3));
 	return 0;
 }
